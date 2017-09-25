@@ -114,6 +114,7 @@
 					B32F88891F75450900017C4E = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = EV2YLB6C2K;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};

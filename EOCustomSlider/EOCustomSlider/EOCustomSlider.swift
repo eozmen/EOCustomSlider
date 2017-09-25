@@ -10,16 +10,16 @@ import UIKit
 
 @IBDesignable class EOCustomSlider: UIView {
     
-    @IBOutlet private var contentView: UIView!
-    @IBOutlet private var dropImageLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet private var sliderLine: UIView!
-    @IBOutlet private var tapDetectView: UIView!
-    @IBOutlet private var dropImage: UIImageView!
-    @IBOutlet private var currentSliderValueLabel: UILabel!
-    @IBOutlet private var maxValLabel: UILabel!
-    @IBOutlet private var minValLabel: UILabel!
-    private var leadingPartWidth : CGFloat = 0.0
-    private var sliderValue = 0
+    @IBOutlet fileprivate var contentView: UIView!
+    @IBOutlet fileprivate var dropImageLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate var sliderLine: UIView!
+    @IBOutlet fileprivate var tapDetectView: UIView!
+    @IBOutlet fileprivate var dropImage: UIImageView!
+    @IBOutlet fileprivate var currentSliderValueLabel: UILabel!
+    @IBOutlet fileprivate var maxValLabel: UILabel!
+    @IBOutlet fileprivate var minValLabel: UILabel!
+    fileprivate var leadingPartWidth : CGFloat = 0.0
+    fileprivate var sliderValue = 0
     
     var maxPoint : Int = 10
     var isReferenceLabels_visible : Bool = false
@@ -117,7 +117,7 @@ import UIKit
         
     }
     // Performs the initial setup.
-    private func commonInit() {
+    fileprivate func commonInit() {
         let view = viewFromNibForClass()
         view.frame = bounds
         
@@ -135,7 +135,7 @@ import UIKit
     }
     
     // Loads a XIB file into a view and returns this view.
-    private func viewFromNibForClass() -> UIView {
+    fileprivate func viewFromNibForClass() -> UIView {
         
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
@@ -164,7 +164,7 @@ import UIKit
         
         
         
-        let gradient =  gradientColor(view:self.sliderLine, c1: colorLine_Start, c2: colorLine_End)
+        let gradient =  gradientColor(self.sliderLine, c1: colorLine_Start, c2: colorLine_End)
         
         self.sliderLine.layer.insertSublayer(gradient, at:0)
         
@@ -191,7 +191,7 @@ import UIKit
         self.maxValLabel.text = String(Int(maxPoint))
     }
     
-    func gradientColor(view:UIView, c1: UIColor, c2: UIColor)-> CAGradientLayer{
+    func gradientColor(_ view:UIView, c1: UIColor, c2: UIColor)-> CAGradientLayer{
         let gradient: CAGradientLayer = CAGradientLayer()
         
         gradient.colors = [c1.cgColor, c2.cgColor]
